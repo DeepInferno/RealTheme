@@ -1,17 +1,26 @@
 <?php
 
 $latest = new WP_Query([
-    'post_type' => 'post',
+    'post_type' => 'post', //Gets the post details via WP
     'posts_per_page' => 1,
     'orderby' => 'date'
 ]);
 
+$name = new WP_Query([
+    'post_type' => 'post', //Gets the post details via WP
+    'posts_per_page' => 1,
+    'category_name' => 'Name',
+    'orderby' => 'date'
+]);
+
+$namePost = $name->posts[0];
+
 //var_dump($allPosts->posts);
 
-foreach ($allPosts->posts as $post) {
-    echo '<p>' . get_the_title($post->ID) . '</p>';
+/*foreach ($latest->posts as $post) {
+    echo '<p>' . get_the_title($post->ID) . '</p>'; //Displays each post onto the webpage
 }
-
+*/
 ?>
 
 <html>
@@ -59,8 +68,8 @@ foreach ($allPosts->posts as $post) {
                         <img src="https://placehold.it/200" />
                     </div>
                     <div class="text-container">
-                        <h1 class="name-container">My Name</h1>
-                        <p>Just me, myself and I, exploring the universe of uknownment. I have a heart of love and a interest of lorem ipsum and mauris neque quam blog. I want to share my world with you.</p>
+                        <h1 class="name-container"><?php echo get_the_title($namePost->ID); ?></h1>
+                        <p><?php echo $namePost->post_content; ?></p>
                     </div>
                 </div>
                 
