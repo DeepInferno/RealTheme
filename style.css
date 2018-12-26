@@ -1,0 +1,60 @@
+/*
+Theme Name: Real Theme
+Theme URI: localhost/WordPressTheme
+Author: Johnathan
+Description: This is a theme
+*/
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+.header-container {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.heading {
+    font-size: 36px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.subheading {
+    font-size: 15px;
+}
+
+.emphasised {
+    display: block;
+}
+
+.global-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.main-container {
+    float: left;
+    width: 66%;
+}
+
+.aside-container {
+    float: right;
+    width: 33%;
+}
+
+.footer-container {
+    clear: both;
+    background-color: gray;
+    height: 20%;
+    max-height: 250px;
+}
+
+.posts-container {
+    margin: 50px auto;
+}
+
+.tags-container {
+    margin: 50px auto;
+}
+
+.text-container {
+    border: 10px;
+}
+
