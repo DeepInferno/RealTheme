@@ -1,3 +1,19 @@
+<?php
+
+$latest = new WP_Query([
+    'post_type' => 'post',
+    'posts_per_page' => 1,
+    'orderby' => 'date'
+]);
+
+//var_dump($allPosts->posts);
+
+foreach ($allPosts->posts as $post) {
+    echo '<p>' . get_the_title($post->ID) . '</p>';
+}
+
+?>
+
 <html>
     <head>
         <meta charset=utf-8>
