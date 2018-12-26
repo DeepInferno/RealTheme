@@ -6,10 +6,8 @@
     </head>
     <body>        
         <header class="header-container">
-            <h1 class="heading">MY BLOG</h1>
-            <p class="subheading">Welcome to the blog of 
-                <span class="emphasised">unknown</span>
-            </p>
+            <h1 class="heading"><?php echo get_bloginfo('name'); ?></h1>
+            <p class="subheading"><?php echo get_bloginfo('description'); ?></p>
         </header>
 
         <div class="global-container">
