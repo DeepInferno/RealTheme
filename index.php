@@ -7,28 +7,28 @@ $latest = new WP_Query([
 ]);
 
 $name = new WP_Query([
-    'post_type' => 'post', //Gets the post details via WP
+    'post_type' => 'post', //Gets the name post details via WP
     'posts_per_page' => 1,
     'category_name' => 'Name',
     'orderby' => 'date'
 ]);
 
 $second = new WP_Query ([
-    'post_type' => 'post',
+    'post_type' => 'post', //Gets the post details and displays the second post onscreen.
     'posts_per_page' => 1,
     'offset' => 1
 ]);
 
 $recent = new WP_Query ([
-    'post_type' => 'post', //Gets the post details via WP
+    'post_type' => 'post', //Gets the most recent post details via WP
     'posts_per_page' => 3,
     'orderby' => 'date'
 ]);
 
 $postTags = new WP_Query ([
     'post_type' => 'post',
-    'posts_per_page' => 3,
-    'orderby' => 'date'
+    'posts_per_page' => 3,  //Gets the posts tags via WP
+    'tag' => 'main'
 ]);
 
 $namePost = $name->posts[0];
@@ -63,10 +63,12 @@ $tags = $postTags->posts[0]
                     <div class="image-container">
                         <img src="https://placehold.it/300" />
                     </div>
-                    <div class="title-heading"><h1><?php echo get_the_title($latest->ID); ?></h1></div>
-                    <div class="title-description"><p><?php echo $latestPost->post_content; ?></p></div>
+                    <div class="title-heading"><h1><?php echo get_the_title($latest->ID); ?></h1>
+                    </div>
+                    <div class="title-description"><p>This is the posts description</p>
+                    </div>
                     <div class="text-container">
-                        <p>Hello</p>
+                        <p><?php echo $latestPost->post_content; ?></p>
                     </div>
                 </article>
                 
@@ -74,12 +76,12 @@ $tags = $postTags->posts[0]
                     <div class="image-container">
                         <img src="https://placehold.it/300" />
                     </div>
-                    <div class="title-heading"><h1><?php echo get_the_title($second->ID); ?></h1>
+                    <div class="title-heading"><h1><?php echo get_the_title($secondPost->ID); ?></h1>
                      </div>
-                     <div class="title-description"><p><?php echo $secondPost->post_content; ?></p>
+                     <div class="title-description"><p>This is the posts description</p>
                      </div>
                     <div class="text-container">
-                        <p>Hello</p>
+                        <p><?php echo $secondPost->post_content; ?></p>
                     </div>
                 </article>
             </main>
@@ -99,18 +101,18 @@ $tags = $postTags->posts[0]
                 <div class="posts-container">
                     <p><b><em>Recent Posts</em></b></p>
                     <ul>
-                        <img src="https://placehold.it/50" /><?php echo get_the_title($recentPost->ID); ?>
-                        <img src="https://placehold.it/50" /><?php echo get_the_title($recentPost->ID); ?>
-                        <img src="https://placehold.it/50" /><?php echo get_the_title($recentPost->ID); ?>
+                        <img src="https://placehold.it/50" /><?php echo get_the_title($recentPosts->ID); ?>
+                        
+                        <?php foreach ($recent->post as $recentPosts) {
+    echo  get_the_title($recentPosts->ID); 
+} ?>
                     </ul>
                 </div>
                 
                 <div class="tags-container">
-                    <p><b><em>Tags</em></b></p>
+                    <p><b><em>Post Tags</em></b></p>
                     <ul>
-                        <li>Tag 1</li>
-                        <li>Tag 2</li>
-                        <li>Tag 3</li>
+                        <p><?php echo $tags->post_content; ?></p>
                     </ul>
                 </div>
             </aside>
