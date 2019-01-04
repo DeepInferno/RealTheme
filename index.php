@@ -35,8 +35,8 @@ $namePost = $name->posts[0];
 $latestPost = $latest->posts[0];
 $secondPost = $second->posts[0];
 $recentPosts = $recent->posts[0];
-$tags = $postTags->posts[0]
-
+$tags = $postTags->posts[0];
+    
 //var_dump($allPosts->posts);
 
 /*foreach ($latest->posts as $post) {
@@ -120,7 +120,7 @@ $tags = $postTags->posts[0]
 
 
         <footer class="footer-container">
-            My footer
+            <a href="contact">Contact Page</a>
         </footer>
     </body>
 </html>

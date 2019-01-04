@@ -6,10 +6,7 @@ $subject = $_POST['subject'];
 $email = $_POST['email'];
 $message = _POST['message'];
 
-Name: $name
-Email: $email
-Subject: $subject
-Message: $message
+wp_mail($myemail, $name, $subject, $email, $message);
 ?>
 
 <html>
@@ -38,47 +35,11 @@ Message: $message
                             <input type="name" name="message" placeholder="eg. Type your message here">
                             <br>
                             
-                            <button type="submit">Submit</button>
+                            <button type="test">Submit</button>
                         </form>
                     </div>
                 </article>
             </main>
-            
-            <aside class="aside-container">
-                <div class="bio-container">
-                   <!-- <div class="image-container">
-                        <img src="https://placehold.it/200" />
-                    </div>
-                    -->
-                    <div class="text-container">
-                        <h1 class="name-container"><?php echo get_the_title($namePost->ID); ?></h1>
-                        <p><?php echo $namePost->post_content; ?></p>
-                    </div>
-                </div>
-                
-                <div class="posts-container">
-                    <p><b><em>Recent Posts</em></b></p>
-                    <ul>
-                        <img src="https://placehold.it/50" /><?php echo get_the_title($recentPosts->ID); ?>
-                        
-                        <?php foreach ($recent->post as $recentPosts) {
-    echo  get_the_title($recentPosts->ID); 
-} ?>
-                    </ul>
-                </div>
-                
-                <div class="tags-container">
-                    <p><b><em>Post Tags</em></b></p>
-                    <ul>
-                        <p><?php echo $tags->post_content; ?></p>
-                    </ul>
-                </div>
-            </aside>
         </div>
-
-
-        <footer class="footer-container">
-            My footer
-        </footer>
     </body>
 </html>
