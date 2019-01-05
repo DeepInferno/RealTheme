@@ -10,6 +10,15 @@
  * @version 1.0
  */
 
+$name = new WP_Query ([
+    'post_type' => 'post',
+    'posts_per_page' => '1',
+    'category_name' => 'Name',
+    'orderby' => 'date'
+]);
+
+$namePost = $name->posts[0];
+
 ?>
 
 <html>
@@ -29,13 +38,14 @@
                 <article class="article-container">
                     <div class="email-form">
                         <form method="post" action="success.php">
+                            <h1>Email Form</h1>
                             <input type="name" name="name" placeholder="eg. John Smith">
                             <br>
                             <input type="email" name="email" placeholder="eg. me@me.com">
                             <br>
                             <input type="name" name="subject" placeholder="eg. Subject name here">
                             <br>
-                            <input type="name" name="message" placeholder="eg. Type your message here">
+                            <textarea id="message" name="message" placeholder="Write something..." style="height:200px;width:200px"></textarea>
                             <br>
                             
                             <button type="test">Submit</button>
@@ -44,5 +54,38 @@
                 </article>
             </main>
         </div>
+                <aside class="aside-container">
+                <div class="bio-container">
+                   <!-- <div class="image-container">
+                        <img src="https://placehold.it/200" />
+                    </div>
+                    -->
+                    <div class="text-container">
+                        <h1 class="name-container"><?php echo get_the_title($namePost->ID); ?></h1>
+                        <p><?php echo $namePost->post_content; ?></p>
+                    </div>
+                </div>
+        
+                    <div class="posts-container">
+                    <p><b><em>Recent Posts</em></b></p>
+                    <ul>
+                        <img src="https://placehold.it/50" /><?php echo get_the_title($recentPosts->ID); ?>
+                        
+                    </ul>
+                </div>
+                
+                <div class="tags-container">
+                    <p><b><em>Post Tags</em></b></p>
+                    <ul>
+                        <p><?php echo $tags->post_content; ?></p>
+                    </ul>
+                </div>
+            </aside>
+      
+        
+        
+        <footer class="footer-container">
+            <a href="../index.php">Home</a>
+        </footer>
     </body>
 </html>
