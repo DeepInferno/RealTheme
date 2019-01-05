@@ -1,4 +1,15 @@
 <?php
+/**
+ * The template for displaying pages
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages and that
+ * other "pages" on your WordPress site will use a different template.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Sixteen
+ * @since Twenty Sixteen 1.0
+ */
 
 $latest = new WP_Query([
     'post_type' => 'post', //Gets the post details via WP
@@ -118,9 +129,8 @@ $tags = $postTags->posts[0];
             </aside>
         </div>
 
-
         <footer class="footer-container">
-            <a href="contact">Contact Page</a>
+            <a href="page">Contact Page</a>
         </footer>
     </body>
 </html>
