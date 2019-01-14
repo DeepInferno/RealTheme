@@ -17,6 +17,14 @@ $name = new WP_Query ([
     'orderby' => 'date'
 ]);
 
+
+$to ='johnathanward@hotmail.co.uk';
+$subject = 'The subject';
+$message = 'This is the body of the content';
+$email = 'This is the users email';
+
+wp_mail('johnathanward@hotmail.co.uk', 'The subject', 'The message');
+
 $namePost = $name->posts[0];
 
 ?>
@@ -37,15 +45,15 @@ $namePost = $name->posts[0];
             <main class="main-container">
                 <article class="article-container">
                     <div class="email-form">
-                        <form method="post" action="success.php">
+                        <form method="post" action="<?php wp_mail('$email', '$subject', '$message') ?>">
                             <h1>Email Form</h1>
                             <input type="name" name="name" placeholder="eg. John Smith">
                             <br>
-                            <input type="email" name="email" placeholder="eg. me@me.com">
+                            <input type="email" name="<?php $email ?>" placeholder="eg. me@me.com">
                             <br>
-                            <input type="name" name="subject" placeholder="eg. Subject name here">
+                            <input type="name" name="<?php $subject ?>" placeholder="eg. Subject name here">
                             <br>
-                            <textarea id="message" name="message" placeholder="Write something..." style="height:200px;width:200px"></textarea>
+                            <textarea id="message" name="<?php $message ?>" placeholder="Write something..." style="height:200px;width:200px"></textarea>
                             <br>
                             
                             <button type="test">Submit</button>
